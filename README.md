@@ -1,8 +1,10 @@
 **Note: This repo started out as a storybook angular starter**
 
-**Note: cy-ts-preprocessor.ts uses other loaders to get working, might be part of the issue** (to-string-loader and html-loader instead of raw-loader)
+* run `npm i`
 
-* run `npm i` then `npm run cy:open`
+* then `npm run cy:open` to run the tests
+
+* run `npm start`to open storybook and see how the components should be rendered
 
 **2 Issues found:**
 
@@ -10,6 +12,12 @@
   * should be styled like material toggle / checkbox
 
 * CardComponent: Won't render at all
-  * uses cyng-icon that uses InlineSVGComponent 
+  * uses InlineSVGComponent which throws an error: `Can't resolve all parameters for InlineSVGComponent: (?, ?).`
 
-* run `npm start`to open storybook and see how the components should be renderd
+**Note:** I had to change cy-ts-preprocessor.ts to use other loaders because it wasn't working. might be part of the issue (to-string-loader and html-loader instead of raw-loader)
+
+component source files are under `/projects/cyng-oasis/src/lib/...`,
+spec files are with the components (e.g. `.../card/card.component.spec.ts`).
+
+the `/src/` folder is used by storybook.
+
