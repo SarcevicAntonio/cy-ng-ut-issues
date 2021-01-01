@@ -14,6 +14,3 @@ export * from './lib/form/checkbox/checkbox.component';
 // Container
 export * from './lib/container/card/card.module';
 export * from './lib/container/card/card.component';
-// Misc
-export * from './lib/misc/icon/icon.module';
-export * from './lib/misc/icon/icon.component';

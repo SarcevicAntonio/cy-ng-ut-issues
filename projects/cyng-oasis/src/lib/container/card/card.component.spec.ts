@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { initEnv, mount } from 'cypress-angular-unit-test';
-import { IconModule } from '../../misc/icon/icon.module';
 import { CardComponent } from './card.component';
+import { InlineSVGModule } from 'ng-inline-svg';
 
 describe('CardComponent', () => {
   it('shows the input', () => {
@@ -11,7 +11,7 @@ describe('CardComponent', () => {
       imports: [
         CommonModule,
         TranslateModule,
-        IconModule,
+        InlineSVGModule.forRoot()
       ]
     });
     // component + any inputs object

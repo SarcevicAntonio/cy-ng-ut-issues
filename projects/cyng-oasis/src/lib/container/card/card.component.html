@@ -4,11 +4,15 @@
   </div>
   <div class="card" [class.with-media]="img">
     <div class="card-header-wrapper" (click)="expanded = !expanded" *ngIf="title" [class.pb]="!expanded">
-      <h3 *ngIf="title">{{title}} <cyng-icon class="expand">{{expanded ? 'expand_less' : 'expand_more'}}</cyng-icon>
+      <h3 *ngIf="title">{{title}}
+        <div class="my-icon" aria-label="My icon"
+          [inlineSVG]="'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg'">
+        </div>
       </h3>
-      <button *ngIf="dismissable" class="top-button" (click)="dismissed = true"
-        ariaLabel="close">
-        <cyng-icon icon="cross_mark"></cyng-icon>
+      <button *ngIf="dismissable" class="top-button" (click)="dismissed = true" ariaLabel="close">
+        <div class="my-icon" aria-label="My icon"
+          [inlineSVG]="'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg'">
+        </div>
       </button>
       <button *ngIf="actionLabel" class="top-button" (click)="onAction()">
         {{actionLabel | translate}}

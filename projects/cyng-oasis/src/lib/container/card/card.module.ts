@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { IconModule } from '../../misc/icon/icon.module';
+import { InlineSVGModule } from 'ng-inline-svg';
 import { CardComponent } from './card.component';
 
 @NgModule({
@@ -10,8 +10,8 @@ import { CardComponent } from './card.component';
   ],
   imports: [
     CommonModule,
-    IconModule,
     TranslateModule,
+    InlineSVGModule.forRoot()
   ],
   exports: [
     CardComponent
