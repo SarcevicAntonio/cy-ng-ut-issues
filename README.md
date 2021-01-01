@@ -17,7 +17,7 @@
 * CardComponent: Won't render at all
   * uses InlineSVGComponent which throws an error: `Can't resolve all parameters for InlineSVGComponent: (?, ?).`
 
-**Note:** I had to change cy-ts-preprocessor.ts to use other loaders because it wasn't working. might be part of the issue (to-string-loader and html-loader instead of raw-loader)
+**Note:** I had to change cy-ts-preprocessor.ts to use other loaders because it wasn't working with the default setup... might be part of the issue (to-string-loader and html-loader instead of raw-loader)
 
 component source files are under `/projects/cyng-oasis/src/lib/...`,
 spec files are with the components (e.g. `.../card/card.component.spec.ts`).
