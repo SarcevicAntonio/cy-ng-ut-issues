@@ -1,0 +1,21 @@
+<div [style.display]="dismissed ? 'none' : 'block'" [class.loading]="loading">
+  <div class="img" *ngIf="img">
+    <img [src]="img" [alt]="alt">
+  </div>
+  <div class="card" [class.with-media]="img">
+    <div class="card-header-wrapper" (click)="expanded = !expanded" *ngIf="title" [class.pb]="!expanded">
+      <h3 *ngIf="title">{{title}} <cyng-icon class="expand">{{expanded ? 'expand_less' : 'expand_more'}}</cyng-icon>
+      </h3>
+      <button *ngIf="dismissable" class="top-button" (click)="dismissed = true"
+        ariaLabel="close">
+        <cyng-icon icon="cross_mark"></cyng-icon>
+      </button>
+      <button *ngIf="actionLabel" class="top-button" (click)="onAction()">
+        {{actionLabel | translate}}
+      </button>
+    </div>
+    <div class="card-content-wrapper" *ngIf="!expandable || (expandable && expanded)">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

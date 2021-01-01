@@ -1,0 +1,151 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "cyng-oasis": {
+      "projectType": "library",
+      "root": "projects/cyng-oasis",
+      "sourceRoot": "projects/cyng-oasis/src",
+      "prefix": "cyng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cyng-oasis/tsconfig.lib.json",
+            "project": "projects/cyng-oasis/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cyng-oasis/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cyng-oasis/src/test.ts",
+            "tsConfig": "projects/cyng-oasis/tsconfig.spec.json",
+            "karmaConfig": "projects/cyng-oasis/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cyng-oasis/tsconfig.lib.json",
+              "projects/cyng-oasis/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "cyng-oasis-tester": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/cyng-oasis-tester",
+      "sourceRoot": "projects/cyng-oasis-tester/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cyng-oasis-tester",
+            "index": "projects/cyng-oasis-tester/src/index.html",
+            "main": "projects/cyng-oasis-tester/src/main.ts",
+            "polyfills": "projects/cyng-oasis-tester/src/polyfills.ts",
+            "tsConfig": "projects/cyng-oasis-tester/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/cyng-oasis-tester/src/favicon.ico",
+              "projects/cyng-oasis-tester/src/assets"
+            ],
+            "styles": [
+              "projects/cyng-oasis-tester/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/cyng-oasis-tester/src/environments/environment.ts",
+                  "with": "projects/cyng-oasis-tester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10kb",
+                  "maximumError": "20kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cyng-oasis-tester:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cyng-oasis-tester:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cyng-oasis-tester:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cyng-oasis-tester/tsconfig.app.json",
+              "projects/cyng-oasis-tester/tsconfig.spec.json",
+              "projects/cyng-oasis-tester/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/cyng-oasis-tester/e2e/protractor.conf.js",
+            "devServerTarget": "cyng-oasis-tester:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cyng-oasis-tester:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "cyng-oasis"
+}

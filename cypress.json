@@ -1,0 +1,6 @@
+{
+  "experimentalComponentTesting": true,
+  "componentFolder": "projects/cyng-oasis/src",
+  "testFiles": "**/*spec.*",
+  "pluginsFile": "cypress/plugins/index.ts"
+}

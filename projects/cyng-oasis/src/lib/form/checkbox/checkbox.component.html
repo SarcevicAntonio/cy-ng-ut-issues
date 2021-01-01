@@ -1,0 +1,43 @@
+<!-- since we are using *ngIf we need the formControl attached to something hidden -->
+<input [hidden]="true" [formControl]="control" type="checkbox">
+
+<ng-template #contentTpl>
+  <ng-content></ng-content> <span class="req" *ngIf="isRequired || control.hasError('required')" [ngClass]="{'required-red': control.hasError('required')}"> *</span>
+</ng-template>
+
+<!-- Checkbox -->
+<div *ngIf="!isSwitch">
+  <!-- Used when using template driven forms -->
+  <mat-checkbox
+    #cBox
+    *ngIf="ngModel !== undefined || tiMode" 
+    [ngModel]="ngModel" 
+    (ngModelChange)="onNgModelChange($event)"
+    [disabled]="disabled" 
+    color="primary" 
+    (change)="onChange($event)" 
+    [checked]="checked">
+    <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+  </mat-checkbox>
+
+  <!-- Used when using reactive forms -->
+  <mat-checkbox #cBox [hidden]="ngModel !== undefined || tiMode" [formControl]="control" color="primary" (change)="onChange($event)"
+    [checked]="checked">
+    <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+  </mat-checkbox>
+</div>
+
+<!-- Switch / Slide Toggle -->
+<div *ngIf="isSwitch">
+  <!-- Used when using template driven forms -->
+  <mat-slide-toggle *ngIf="ngModel !== undefined" #slider [ngModel]="ngModel" (ngModelChange)="onNgModelChange($event)"
+    [disabled]="disabled" color="primary" (change)="onChange($event)" [checked]="checked">
+    <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+  </mat-slide-toggle>
+
+  <!-- Used when using reactive forms -->
+  <mat-slide-toggle [hidden]="ngModel !== undefined" #slider [formControl]="control" [attr.disabled]="disabled" color="primary"
+    (change)="onChange($event)" [checked]="checked">
+    <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+  </mat-slide-toggle>
+</div>
