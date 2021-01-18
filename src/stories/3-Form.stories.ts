@@ -28,14 +28,14 @@ export default {
 
 export const Checkbox = () => ({
   template: `
-    <cyng-checkbox [formControl]="formControl" [isSwitch]="isSwitch" [color]="color" (change)="onChange($event)">{{label}}</cyng-checkbox>
+    <cyng-checkbox [formControl]="formControl" [isSwitch]="isSwitch" (change)="onChange($event)">{{label}}</cyng-checkbox>
+    <br><br>
     <br><br>
     formControl.value: {{formControl.value | json}}
   `,
   props: {
     label: text('label', 'Benachrichtigungen empfangen'),
     isSwitch: boolean('isSwitch', true),
-    color: text('color', '#ff0033'),
     formControl: new FormControl({ value: true, disabled: false }, [Validators.requiredTrue]),
     onChange: action('onChange'),
   },

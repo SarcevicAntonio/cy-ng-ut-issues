@@ -1,5 +1,4 @@
 :host ::ng-deep {
-
   .required-red {
     margin-left: 4px;
   }
@@ -56,23 +55,28 @@
     background-color: black;
   }
 
-  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-primary .mat-ripple-element,
-  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-primary .mat-ripple-element {
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-primary
+    .mat-ripple-element,
+  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-primary
+    .mat-ripple-element {
     background: blue;
   }
 
-  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
-  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent
+    .mat-ripple-element,
+  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent
+    .mat-ripple-element {
     background-color: blue;
   }
 
-  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-warn .mat-ripple-element,
-  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-warn .mat-ripple-element {
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-warn
+    .mat-ripple-element,
+  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-warn
+    .mat-ripple-element {
     background: red;
   }
 
   .mat-slide-toggle-content {
-    
     line-height: 1.4;
   }
 
@@ -125,4 +129,16 @@
   .mat-slide-toggle-bar {
     background-color: rgba(0, 0, 0, 0.38);
   }
+
+  * {
+    font-style: italic;
+    font-family: "Courier New", Courier, monospace !important;
+    border: 1px solid greenyellow !important;
+  }
+}
+
+
+* {
+  border: 1px solid greenyellow !important;
+
 }
